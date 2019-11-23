@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 account_id=$1
 aws_region=$2
 s3_bucket=$3
@@ -12,7 +14,7 @@ echo "role_arn = arn:aws:iam::${account_id}:role/RootRole" >> $aws_credentials_f
 echo "credential_source = Ec2InstanceMetadata" >> $aws_credentials_file
 
 function copy_to_s3 {
-  aws2 s3 --no-sign-requres --region ${aws_region} \
+    aws2 s3 --no-sign-requres --region ${aws_region} \
     cp $1 s3://${s3_bucket/$(basename $1)
 }
 

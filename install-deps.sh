@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 cd /root
 
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA9EF27F
@@ -7,7 +10,7 @@ curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -c -s)-pgdg main" >> /etc/apt/sources.list
 
 apt update
-apt install -y unzip git nohup postgresql-client-11 pgpool2
+apt install -y unzip postgresql-client-11 pgpool2
 
 cd /tmp
 
