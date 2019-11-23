@@ -20,7 +20,7 @@ backend_port${n} = 5432
 backend_weight${n} = 1
 backend_data_directory${n} = '/data/postgresql'
 backend_flag${n} = 'ALLOW_TO_FAILOVER'
-    " >> $PGPOOL_CONFIG
+    " >> /etc/pgpool2/pgpool.conf
 
     service pgpool2 restart
 
