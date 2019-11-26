@@ -22,7 +22,11 @@ backend_data_directory${n} = '/data/postgresql'
 backend_flag${n} = 'ALLOW_TO_FAILOVER'
     " >> /etc/pgpool2/pgpool.conf
 
+    echo "$n $instance_id" >> /var/nodes
+
     service pgpool2 restart
+
+    pcp_attach_node -h 127.0.0.1 -U pgpool -p 9898 -n $n -w
 
     ((n=n+1))
 done
