@@ -25,6 +25,7 @@ backend_flag${n} = 'ALLOW_TO_FAILOVER'
     echo "$n $instance_id" >> /var/nodes
 
     service pgpool2 restart
+    sleep 2
 
     pcp_attach_node -h 127.0.0.1 -U pgpool -p 9898 -n $n -w
 

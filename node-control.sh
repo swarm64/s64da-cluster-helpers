@@ -1,7 +1,8 @@
 #!/bin/bash
 
 NODES_INFO=/var/nodes
-ASG_NAME=foo
+ASG_NAME=`aws2 autoscaling describe-auto-scaling-instances \
+  --query AutoScalingInstances[1].AutoScalingGroupName`
 
 function print_help {
   echo "Usage: $0 {attach|detach} <node-number>"
