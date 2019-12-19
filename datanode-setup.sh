@@ -20,6 +20,8 @@ cat /tmp/frontend_key.pub >> /home/ubuntu/.ssh/authorized_keys
 
 echo "169.254.169.254 instance-data" >> /etc/hosts
 
+service swarm64da start
+
 instance_id=`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`
 instance_ip=`wget -q -O - http://169.254.169.254/latest/meta-data/local-ipv4`
 echo "$instance_id $instance_ip" | nc -q0 $frontend_ip 6464
