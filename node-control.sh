@@ -9,7 +9,6 @@ function print_help {
 }
 
 function wait_for_pg {
-    set +e
     PG_HOST=$1
 
     PSQL_UP=0
@@ -24,10 +23,8 @@ function wait_for_pg {
 
     if [ $PSQL_UP -ne 1 ]; then
         echo "PSQL did not start within time. Aborting."
-        exit -1
+        exit 1
     fi
-
-    set -e
 }
 
 
