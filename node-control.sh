@@ -40,7 +40,7 @@ case $CMD in
     aws2 autoscaling detach-instances --instances-ids $NODE_ID \
       --auto-scaling-group-name $ASG_NAME \
       --should-decrement-desired-capacity
-    aws2 start-instances --instance-ids $NODE_ID
+    aws2 stop-instances --instance-ids $NODE_ID
     ;;
   *)
 esac

@@ -19,6 +19,7 @@ aws2 s3 --no-sign-request --region ${aws_region} \
 cat /tmp/frontend_key.pub >> /home/ubuntu/.ssh/authorized_keys
 
 echo "169.254.169.254 instance-data" >> /etc/hosts
+echo fifo > "/sys/block/bcache0/bcache/cache/cache0/cache_replacement_policy"
 
 service swarm64da start
 
