@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 NODES_INFO=/var/nodes
 ASG_NAME=`aws2 autoscaling describe-auto-scaling-instances \
   --query AutoScalingInstances[1].AutoScalingGroupName`
